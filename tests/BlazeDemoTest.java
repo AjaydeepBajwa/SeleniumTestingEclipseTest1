@@ -44,14 +44,46 @@ public class BlazeDemoTest {
 	@Test
 	public void departureCityCountTest() {
 		// Get the total cities from departure and destination box.
-		List<WebElement> CitySelBox = driver.findElements(By.cssSelector("form select"));
+		List<WebElement> totalCitiesSel = driver.findElements(By.cssSelector("form select"));
 		
 		//select the departure cities
-		WebElement  depCityList = CitySelBox.get(0);
+		WebElement  depCitySel = totalCitiesSel.get(0);
 		//Get the list of departure cities
-		List<WebElement> Listt = depCityList.findElements(By.cssSelector("option"));
-		System.out.println("No. of Departure cities" +Listt.size());
-		assertEquals(7,Listt.size());		
+		List<WebElement>  depCityList= depCitySel.findElements(By.cssSelector("option"));
+		System.out.println("No. of Departure cities :" +depCityList.size());
+		assertEquals(7,depCityList.size());		
+	}
+	
+	@Test
+	public void virginAmericaflightTest() {
+		//get find flights button
+		WebElement findFlightBtn = driver.findElement(By.cssSelector(".container .container input"));
+		
+		//click the button
+		findFlightBtn.click();
+		
+		//get all the flights available
+		List<WebElement> allFlights = driver.findElements(By.cssSelector("table tbody tr"));
+		System.out.println("No. of flights " +allFlights.size());
+		
+		//get Virgin America Flight #12
+		WebElement Flight12 = allFlights.get(3);
+		//get details of flight#12
+		List<WebElement> flightDetails = Flight12.findElements(By.cssSelector("td"));
+		System.out.println("No. of columns " +flightDetails.size());
+		
+		System.out.println("Departs at : " +flightDetails.get(3).getText());
+		//checking if the departure time is 11:23 AM
+		assertEquals("11:23 AM",flightDetails.get(3).getText());
+		
+		//checking if the arrival time is 1:45 AM
+		assertEquals("1:45 PM",flightDetails.get(4).getText());
+		System.out.println("Departs at : " +flightDetails.get(4).getText());
+				
+		//checking if the cost is $765.32
+		assertEquals("$765.32",flightDetails.get(5).getText());
+		System.out.println("Departs at : " +flightDetails.get(5).getText());
+		
 	}
 
 }
