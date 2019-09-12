@@ -1,3 +1,6 @@
+//Student Name - Ajaydeep Singh
+//ID - C0744219
+
 import static org.junit.Assert.*;
 
 import java.util.List;
@@ -95,7 +98,7 @@ public class BlazeDemoTest {
 		virginAmericaflightTest();
 		//select the purchase flight button
 		
-		WebElement purBtn = driver.findElement(By.cssSelector(".container form .controls input"));
+		WebElement purBtn = driver.findElement(By.cssSelector(".container form .control-group .controls input"));
 		purBtn.click();
 		System.out.println(purBtn.getText());
 	}
