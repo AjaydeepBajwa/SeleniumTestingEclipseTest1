@@ -84,6 +84,20 @@ public class BlazeDemoTest {
 		assertEquals("$765.32",flightDetails.get(5).getText());
 		System.out.println("Departs at : " +flightDetails.get(5).getText());
 		
+		// get the 'choose this flight' button and click it
+		WebElement selFlightBtn =  flightDetails.get(0);
+		selFlightBtn.click();
+	}
+	
+	@Test
+	public void purchaseConfirmationTest() {
+		
+		virginAmericaflightTest();
+		//select the purchase flight button
+		
+		WebElement purBtn = driver.findElement(By.cssSelector(".container form .controls input"));
+		purBtn.click();
+		System.out.println(purBtn.getText());
 	}
 
 }
