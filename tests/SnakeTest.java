@@ -37,6 +37,19 @@ public class SnakeTest {
 		//check if snake2 is unhealthy
 		assertFalse(snake2.isHealthy());
 	}
+	
+	@Test
+	public void fitsInCageTest() {
+		
+		//check if snake1 fits in cage of length 9
+		assertTrue(snake1.fitsInCage(9));
+		
+		//check if snake 1 fits in cage of length 10
+		assertTrue(snake1.fitsInCage(10));
+		
+		//check snake1 fits in cage of length 11
+		assertTrue(snake1.fitsInCage(11));
+	}
 
 	
 }
